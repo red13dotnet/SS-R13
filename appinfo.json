@@ -4,13 +4,13 @@
     "appKeys": {
         "dummy": 0
     },
-    "longName": "SmartStatus+FB",
-    "versionCode": 1,
+    "longName": "SmartStatus-R13",
+    "versionCode": 8,
     "capabilities": [
         ""
     ],
-    "shortName": "SS+FB",
-    "companyName": "red13.net",
+    "shortName": "SS-R13",
+    "companyName": "red13dotnet",
     "watchapp": {
         "watchface": false
     },

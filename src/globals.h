@@ -83,3 +83,6 @@ static char *app_names[] = {"Calendar", "Music", "GPS", "Launch Siri", "Stocks",
 
 
 #endif
+	
+	
+	

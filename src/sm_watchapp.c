@@ -271,15 +271,16 @@ static void click_config_provider(void *context) {
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
   window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
-  window_long_click_subscribe(BUTTON_ID_SELECT, select_long_click_handler);
-  window_long_click_subscribe(BUTTON_ID_UP, up_long_click_handler);
-  window_long_click_subscribe(BUTTON_ID_DOWN, down_long_click_handler);
+  window_long_click_subscribe(BUTTON_ID_SELECT, 700, select_long_click_handler, NULL);
+  window_long_click_subscribe(BUTTON_ID_UP, 700, up_long_click_handler, NULL);
+  window_long_click_subscribe(BUTTON_ID_DOWN, 700, down_long_click_handler, NULL);
   window_multi_click_subscribe(BUTTON_ID_SELECT, 2, 10, 0, true, select_multi_click_handler);
   window_multi_click_subscribe(BUTTON_ID_UP, 2, 10, 0, true, up_multi_click_handler);
   window_multi_click_subscribe(BUTTON_ID_DOWN, 2, 10, 0, true, down_multi_click_handler);
-
-
+  
 }
+
+
 
 void reset() {
 	
