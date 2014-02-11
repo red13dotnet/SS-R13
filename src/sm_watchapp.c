@@ -231,14 +231,38 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 
 }
 
-static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
-	sendCommand(SM_OPEN_SIRI_KEY);
+static void select_long_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_PLAYPAUSE_KEY);
 }
 
-static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+static void select_multi_click_handler(ClickRecognizerRef recognizer, void *context) {
 	text_layer_set_text(text_weather_cond_layer, "Updating..." ); 	
 	
 	sendCommandInt(SM_SCREEN_ENTER_KEY, STATUS_SCREEN_APP);
+}
+
+static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_NEXT_TRACK_KEY);
+}
+
+static void up_long_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_FIND_MY_PHONE_KEY);
+}
+
+static void up_multi_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_VOLUME_UP_KEY);
+}
+
+static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_PREVIOUS_TRACK_KEY);
+}
+
+static void down_long_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_OPEN_SIRI_KEY);
+}
+
+static void down_multi_click_handler(ClickRecognizerRef recognizer, void *context) {
+	sendCommand(SM_VOLUME_DOWN_KEY);
 }
 
 static void click_config_provider(void *context) {
@@ -247,6 +271,12 @@ static void click_config_provider(void *context) {
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
   window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
+  window_long_click_subscribe(BUTTON_ID_SELECT, select_long_click_handler);
+  window_long_click_subscribe(BUTTON_ID_UP, up_long_click_handler);
+  window_long_click_subscribe(BUTTON_ID_DOWN, down_long_click_handler);
+  window_multi_click_subscribe(BUTTON_ID_SELECT, 2, 10, 0, true, select_multi_click_handler);
+  window_multi_click_subscribe(BUTTON_ID_UP, 2, 10, 0, true, up_multi_click_handler);
+  window_multi_click_subscribe(BUTTON_ID_DOWN, 2, 10, 0, true, down_multi_click_handler);
 
 
 }
